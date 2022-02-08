@@ -1,0 +1,90 @@
+<odoo>
+	<data>
+
+		<!--Vistas de companiasenv-->
+
+		<record model="ir.ui.view" id="modelos9.companiasenv_list_view">
+			<field name="name">modelos9.companiasenv.view.tree</field>
+			<field name="model">modelos9.companiasenv</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idCompanias"/>
+					<field name="nombre"/>
+					<field name="telefono"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.companiasenv_search_view">
+			<field name="name">modelos9.companiasenv.view.search</field>
+			<field name="model">modelos9.companiasenv</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idCompanias"/>
+					<field name="nombre"/>
+					<field name="telefono"/>
+					<group>
+						<filter name="group_by_name" string="idCompanias" context="{'gropup_by':'idCompanias'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.companiasenv_form_view">
+			<field name="name">modelos9.companiasenv.view.form</field>
+			<field name="model">modelos9.companiasenv</field>
+			<field name="arch" type="xml">
+				<form string="Información Compañias Envios">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Compañias Envios:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idCompanias" placeholder="ID Compañias Envios"/>
+								<field name="nombre" placeholder="Nombre Compañias Envios"/>
+								<field name="telefono" placeholder="Telefono Compañias Envios"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar
+
+		<record model="ir.ui.view" id="modelos9.companiasenv_calendar_view">
+			<field name="name">modelos9.companiasenv.view.calendar</field>
+			<field name="model">modelos9.companiasenv</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+					<field name="name"/>
+					<field name="imagen"/>
+					<field name="precio"/>
+				</calendar>
+			</field>
+		</record>
+
+		Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.companiasenv_action_window">
+			<field name="name">Compañias Envios</field>
+			<field name="res_model">modelos9.companiasenv</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Compañias Envios" id="modelos9.menu_companiasenv" parent="modelos9.menu_root" action="modelos9.companiasenv_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Compañias Envios" id="modelos9.menu_companiasenv_list" parent="modelos9.menu_companiasenv" action="modelos9.companiasenv_action_window"/>-->
+
+	</data>
+</odoo>

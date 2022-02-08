@@ -1,0 +1,27 @@
+<odoo>
+    <record id="modelos9.companiasenv_report" model="ir.actions.report">
+        <field name="name"> Informe de Compañia Envios</field>
+        <field name="model">modelos9.companiasenv</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.companiasenv_report_view</field>
+        <field name="report_file">modelos9.companiasenv_report</field>
+        <field name="binding_model_id" ref="model_modelos9_companiasenv"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="companiasenv_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Compañia Envios</h1><br />
+                <t t-foreach="docs" t-as="companiasenv">
+                    <ul>
+                        <li>ID Compañia: <span t-field="productos.idCompanias" /></li>
+                        <li>Nombre: <span t-field="productos.nombre" /></li>
+                        <li>Telefono: <span t-field="productos.telefono" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,27 @@
+<odoo>
+    <record id="modelos9.transporte_report" model="ir.actions.report">
+        <field name="name"> Informe de Transporte</field>
+        <field name="model">modelos9.transporte</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.transporte_report_view</field>
+        <field name="report_file">modelos9.transporte_report</field>
+        <field name="binding_model_id" ref="model_modelos9_transporte"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="transporte_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Transporte</h1><br />
+                <t t-foreach="docs" t-as="transporte">
+                    <ul>
+                        <li>ID Transporte: <span t-field="productos.idTransporte" /></li>
+                        <li>Nombre: <span t-field="productos.nombre" /></li>
+                        <li>Vehiculo: <span t-field="productos.vehiculo" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

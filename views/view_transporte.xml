@@ -1,0 +1,90 @@
+<odoo>
+	<data>
+
+		<!--Vistas de transporte-->
+
+		<record model="ir.ui.view" id="modelos9.transporte_list_view">
+			<field name="name">modelos9.transporte.view.tree</field>
+			<field name="model">modelos9.transporte</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idTransporte"/>
+					<field name="nombre"/>
+					<field name="vehiculo"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.transporte_search_view">
+			<field name="name">modelos9.transporte.view.search</field>
+			<field name="model">modelos9.transporte</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idTransporte"/>
+					<field name="nombre"/>
+					<field name="vehiculo"/>
+					<group>
+						<filter name="group_by_name" string="idTransporte" context="{'gropup_by':'idTransporte'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.transporte_form_view">
+			<field name="name">modelos9.transporte.view.form</field>
+			<field name="model">modelos9.transporte</field>
+			<field name="arch" type="xml">
+				<form string="Información Vehiculos">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Vehiculos:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idTransporte" placeholder="ID Vehiculos"/>
+								<field name="nombre" placeholder="Nombre Vehiculos"/>
+								<field name="vehiculo" placeholder="Behiculos Vehiculos"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar
+
+		<record model="ir.ui.view" id="modelos9.transporte_calendar_view">
+			<field name="name">modelos9.transporte.view.calendar</field>
+			<field name="model">modelos9.transporte</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+					<field name="name"/>
+					<field name="imagen"/>
+					<field name="precio"/>
+				</calendar>
+			</field>
+		</record>
+
+		Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.transporte_action_window">
+			<field name="name">Vehiculos</field>
+			<field name="res_model">modelos9.transporte</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Vehiculos" id="modelos9.menu_transporte" parent="modelos9.menu_root" action="modelos9.transporte_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Vehiculos" id="modelos9.menu_transporte_list" parent="modelos9.menu_transporte" action="modelos9.transporte_action_window"/>-->
+
+	</data>
+</odoo>
